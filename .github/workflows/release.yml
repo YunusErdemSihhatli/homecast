@@ -63,8 +63,10 @@ jobs:
             echo "::error::The release APK is signed with the debug key."
             exit 1
           fi
-          if grep -q "^Signer #2" signer.txt \
-            || ! grep -qFx "Signer #1 certificate SHA-256 digest: $HOMECAST_CERT_SHA256" signer.txt; then
+          # apksigner prints "Signer #1 certificate ..." or "V2 Signer: certificate ..." depending on the
+          # schemes present; either way there must be exactly one distinct signing certificate: the pinned one.
+          DIGESTS="$(sed -n 's/^.*[Ss]igner.*certificate SHA-256 digest: //p' signer.txt | sort -u)"
+          if grep -q "Signer #2" signer.txt || [ "$DIGESTS" != "$HOMECAST_CERT_SHA256" ]; then
             echo "::error::The release APK is not signed with the HomeCast release certificate (HOMECAST_CERT_SHA256)."
             exit 1
           fi

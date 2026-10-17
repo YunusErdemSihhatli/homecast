@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Media page</title>
+  <script src="/media.js"></script>
+</head>
+<body>
+  <h1>Media page</h1>
+  <script>
+    window.framePauses = 0;
+    window.addEventListener('message', function (e) { if (e.data === 'frame-paused') window.framePauses++; });
+    window.mainMedia = startMedia();
+  </script>
+  <!-- Cross-origin: paused through its own capture.js bridge, not by the main frame. -->
+  <iframe src="{{FRAME_URL}}" width="320" height="180"></iframe>
+</body>
+</html>

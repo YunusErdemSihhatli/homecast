@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hijacked link page</title>
+  <style>
+    html, body { margin: 0; height: 100%; }
+    #link { position: fixed; top: 0; left: 0; width: 100%; height: 100%; display: block; font-size: 32px; }
+  </style>
+</head>
+<body>
+  <!-- A real new-tab link whose click handler opens another site instead. -->
+  <a id="link" href="/second.html" target="_blank"
+     onclick="window.open('{{POPUP_URL}}'); return false;">Next episode</a>
+</body>
+</html>

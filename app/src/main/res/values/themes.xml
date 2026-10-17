@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Day/night by resource qualifier (values-night), so the window before Compose draws matches the system theme. -->
+    <style name="Theme.HomeCast" parent="android:Theme.Material.Light.NoActionBar" />
+</resources>

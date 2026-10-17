@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>First page</title>
+  <style>
+    html, body { margin: 0; height: 100%; }
+    #open { position: fixed; top: 0; left: 0; width: 100%; height: 100%; font-size: 32px; }
+  </style>
+</head>
+<body>
+  <video src="/media/clip.mp4" muted></video>
+  <!-- Covers the whole page so a tap anywhere opens a cross-site window. -->
+  <button id="open" onclick="window.open('{{POPUP_URL}}')">Open popup</button>
+</body>
+</html>

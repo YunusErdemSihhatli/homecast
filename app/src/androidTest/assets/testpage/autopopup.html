@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Auto popup page</title>
+</head>
+<body>
+  <h1>Auto popup page</h1>
+  <!-- No user gesture: must be dropped. -->
+  <script>
+    setTimeout(function () {
+      var w = window.open('/second.html');
+      document.title = 'tried:' + (w ? 'window' : 'null');
+    }, 300);
+  </script>
+</body>
+</html>

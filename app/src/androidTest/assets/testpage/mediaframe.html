@@ -1,0 +1,14 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Media frame</title>
+  <script src="/media.js"></script>
+</head>
+<body>
+  <script>
+    var media = startMedia();
+    media.addEventListener('pause', function () { parent.postMessage('frame-paused', '*'); });
+  </script>
+</body>
+</html>

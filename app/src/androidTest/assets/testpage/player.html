@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Player</title>
+  <script src="http://ads.test/ad.js"></script>
+  <script src="{{LOCAL_AD_URL}}"></script>
+  <script src="{{LOCAL_LIB_URL}}"></script>
+</head>
+<body>
+  <video width="320" height="180"></video>
+  <script>
+    window.open("{{POPUP_URL}}");
+    // An HLS master playlist without a file extension, only served with this page as Referer.
+    fetch("/stream/master").then(function (r) { return r.text(); }).then(function () { document.title = "loaded"; });
+    // A playlist WITH extension (seen by network interception) that also needs this page as Referer.
+    fetch("/hls/index.m3u8");
+  </script>
+</body>
+</html>
